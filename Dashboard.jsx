@@ -432,9 +432,31 @@ function AyarlarPage() {
         
         <div className="p-8">
           <form onSubmit={handleSave} className="space-y-6">
+            
+            {/* 1. SELLER ID - EN ÜST */}
             <div>
               <label className="block text-sm font-bold text-gray-700 mb-3">
-                🔑 API Key
+                🏪 1. Seller ID
+              </label>
+              <input
+                type="text"
+                value={trendyolAyar.trendyol_seller_id}
+                onChange={(e) => setTrendyolAyar({ ...trendyolAyar, trendyol_seller_id: e.target.value })}
+                className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-orange-500/20 focus:border-orange-500 transition-all text-lg"
+                placeholder="Seller ID'nizi girin (örn: 929513)"
+              />
+              {trendyolAyar.trendyol_seller_id && (
+                <div className="mt-2 text-sm text-green-600 flex items-center">
+                  <CheckCircle className="h-4 w-4 mr-1" />
+                  Seller ID tanımlandı
+                </div>
+              )}
+            </div>
+
+            {/* 2. API KEY - ORTA */}
+            <div>
+              <label className="block text-sm font-bold text-gray-700 mb-3">
+                🔑 2. API Key
               </label>
               <input
                 type="text"
@@ -451,9 +473,10 @@ function AyarlarPage() {
               )}
             </div>
 
+            {/* 3. API SECRET - EN ALT */}
             <div>
               <label className="block text-sm font-bold text-gray-700 mb-3">
-                🔒 API Secret
+                🔒 3. API Secret
               </label>
               <div className="relative">
                 <input
@@ -475,25 +498,6 @@ function AyarlarPage() {
                 <div className="mt-2 text-sm text-green-600 flex items-center">
                   <CheckCircle className="h-4 w-4 mr-1" />
                   API Secret tanımlandı
-                </div>
-              )}
-            </div>
-
-            <div>
-              <label className="block text-sm font-bold text-gray-700 mb-3">
-                🏪 Seller ID
-              </label>
-              <input
-                type="text"
-                value={trendyolAyar.trendyol_seller_id}
-                onChange={(e) => setTrendyolAyar({ ...trendyolAyar, trendyol_seller_id: e.target.value })}
-                className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-orange-500/20 focus:border-orange-500 transition-all text-lg"
-                placeholder="Seller ID'nizi girin"
-              />
-              {trendyolAyar.trendyol_seller_id && (
-                <div className="mt-2 text-sm text-green-600 flex items-center">
-                  <CheckCircle className="h-4 w-4 mr-1" />
-                  Seller ID tanımlandı
                 </div>
               )}
             </div>
